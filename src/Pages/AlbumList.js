@@ -4,27 +4,26 @@ export const AlbumList = () => {
   const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
-    fetch("https://theaudiodb.com/api/v1/json/1/search.php?s=coldplay")
+    fetch("https://theaudiodb.com/api/v1/json/1/album.php?i=112024")
       .then(res => res.json())
       .then(json => {
-        setAlbums(json.artists[0]);
-        console.log(json.artists);
-        console.log("albums", albums);
+        setAlbums(json.album);
+        console.log("inside fetch", json.album);
       });
   }, []);
   console.log(albums);
   return (
     <div>
-      {/* {albums.map(album => ( */}
-      {
-        <div>
-          {console.log("albums inside rturn", albums)}
-          <img src={albums.strAlmbumThumb} alt="artist" />
-          <h2>{albums.strAlbum}</h2>
-          <h3>{albums.strArtist}</h3>
-        </div>
-      }
-      {/* // ))} */}
+      {albums.map(item => {
+        return (
+          <div>
+            {/* {console.log("albums inside rturn", albums)} */}
+            <img src={item.strAlbumThumb} alt={item.strAlbum} />
+            <h2>{item.strAlbum}</h2>
+            <h3>{item.strArtist}</h3>
+          </div>
+        );
+      })}
     </div>
   );
 };
