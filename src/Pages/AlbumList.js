@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export const AlbumList = () => {
   const [albums, setAlbums] = useState([]);
@@ -16,11 +17,13 @@ export const AlbumList = () => {
     <div>
       {albums.map(item => {
         return (
-          <div>
+          <div key={item.idAlbum}>
             {/* {console.log("albums inside rturn", albums)} */}
-            <img src={item.strAlbumThumb} alt={item.strAlbum} />
+            <img src={`${item.strAlbumThumb}/preview`} alt={item.strAlbum} />
             <h2>{item.strAlbum}</h2>
-            <h3>{item.strArtist}</h3>
+            <Link to={`/albums/${item.idAlbum}`}>
+              <h3>{item.strArtist}</h3>
+            </Link>
           </div>
         );
       })}
