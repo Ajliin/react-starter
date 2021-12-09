@@ -20,7 +20,7 @@ const Form = () => {
   const handleInput = e => {
     fetchNetflixTitles(indata)
     setIsData(true)
-
+    setIndata([])
     console.log("setIndata", indata)
     e.preventDefault()
   }
