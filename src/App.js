@@ -1,15 +1,13 @@
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { AlbumList } from "Pages/AlbumList";
+import React from "react"
+
+import Data from "./components/Data"
+import Form from "./components/Form"
 
 export const App = () => {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" exact>
-          <AlbumList />
-        </Route>
-      </Switch>
-    </BrowserRouter>
-  );
-};
+    <>
+      {/* <Data /> */}
+      <Form />
+    </>
+  )
+}
