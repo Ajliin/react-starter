@@ -2,10 +2,12 @@ import React, { useState } from "react"
 
 const Form = () => {
   const [indata, setIndata] = useState([])
-  const [isData, setIsData] = useState(false)
+  const [textInput, setTextInput] = useState("")
 
-  const fetchNetflixTitles = indata => {
-    fetch(`https://nameless-stream-30791.herokuapp.com/titles/?title=${indata}`)
+  const fetchNetflixTitles = textInput => {
+    fetch(
+      `https://nameless-stream-30791.herokuapp.com/titles/?title=${textInput}`
+    )
       .then(res => res.json())
       .then(json => {
         setIndata(json)
@@ -13,36 +15,40 @@ const Form = () => {
       })
   }
 
-  const onSetIndataChange = e => {
-    setIndata(e.target.value)
+  const onSetTextInputChange = e => {
+    setTextInput(e.target.value)
   }
 
   const handleInput = e => {
-    fetchNetflixTitles(indata)
-    setIsData(true)
+    fetchNetflixTitles(textInput)
+    setTextInput("")
     setIndata([])
     console.log("setIndata", indata)
     e.preventDefault()
   }
 
   return (
-    <form onSubmit={handleInput}>
+    <form className="form" onSubmit={handleInput}>
       {console.log("indata in return", indata)}
       <input
         type="text"
-        placeholder="search for movie"
-        value={indata}
-        onChange={onSetIndataChange}
+        placeholder="Search for Netflix title"
+        value={textInput}
+        onChange={onSetTextInputChange}
+        className="input-field"
       ></input>
+      <button className="submit-btn" onClick={() => handleInput}>
+        Search
+      </button>
 
-      <button onClick={() => handleInput}>Search for a netflix title</button>
-      {indata.length !== 0 && isData && (
-        <>
-          {indata.map(item => {
-            console.log(item)
-            return <p key={item}>{item}</p>
-          })}
-        </>
+      {indata.length !== 0 && (
+        <section className="output-container">
+          {indata.map(item => (
+            <div className="output-container">
+              <h2 key={item}>{item}</h2>
+            </div>
+          ))}
+        </section>
       )}
     </form>
   )

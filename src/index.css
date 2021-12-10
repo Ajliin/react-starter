@@ -1,13 +1,88 @@
 body {
-  margin: 20px;
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #fcf4e8;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  min-width: 300px;
+  width: 100%;
+  background-color: #c8d746;
+  height: 20vh;
+  padding: 20px;
+}
+
+.header h1 {
+  font-size: xx-large;
+  color: #050004;
+}
+
+.img-header {
+  height: 150px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 375;
+}
+
+.form {
+  width: 100%;
+  margin: 20px auto;
+  padding: 0 20px;
+  max-width: 700px;
+  min-width: 300px;
+}
+
+.submit-btn {
+  background-color: #f6c8ee;
+  padding: 10px;
+
+  border: 2px solid #050004;
+  border-radius: 2px;
+  margin-left: 10px;
+}
+
+.input-field {
+  padding: 10px;
+  border: 2px solid #050004;
+  border-radius: 2px;
+}
+
+.output-section {
+  width: 100%;
+  margin: 2px auto;
+}
+
+.output-container {
+  margin: 2px 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+
+.output-container p {
+  margin: 0 0 5px 0;
+  color: white;
+}
+
+.output-container h2 {
+  margin: 0 0 5px 0;
+  color: white;
+  font-size: medium;
 }
