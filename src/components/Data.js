@@ -9,7 +9,6 @@ const Data = () => {
       .then(res => res.json())
       .then(json => {
         setIndata(json)
-        console.log("from json", json)
       })
   }
 
@@ -21,13 +20,12 @@ const Data = () => {
     fetchNetflixTitles(textInput)
     setTextInput("")
     setIndata([])
-    console.log("setIndata", indata)
+
     e.preventDefault()
   }
 
   return (
     <form className="form" onSubmit={handleInput}>
-      {console.log("indata in return", indata)}
       <select
         type="text"
         placeholder="Search for Netflix title"
@@ -35,7 +33,7 @@ const Data = () => {
         onChange={onSetTextInputChange}
         className="input-field"
       >
-        <option value="">From year</option>
+        <option value="">By year</option>
         <option value="2020">2020</option>
         <option value="2019">2019</option>
         <option value="2018">2018</option>

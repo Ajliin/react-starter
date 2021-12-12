@@ -9,8 +9,8 @@ export const App = () => {
     <>
       <main className="main">
         <Header />
-        <Data />
         <Form />
+        <Data />
       </main>
     </>
   )
